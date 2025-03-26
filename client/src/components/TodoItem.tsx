@@ -14,7 +14,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
 
   const { mutate: deleteTodo } = useMutation({
     mutationFn: async () => {
-      const res = await fetch(`${BASE_URL}/todos/${todo._id}`, {
+      const res = await fetch(`${BASE_URL}/todos/${todo.id}`, {
         method: "DELETE",
       })
       const data = await res.json()
@@ -30,7 +30,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
 
   const { mutate: toggleTodo } = useMutation({
     mutationFn: async () => {
-      const res = await fetch(`${BASE_URL}/todos/${todo._id}`, {
+      const res = await fetch(`${BASE_URL}/todos/${todo.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
